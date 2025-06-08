@@ -1,9 +1,11 @@
 import jsonfile from "jsonfile";
 import moment from "moment";
 import simpleGit from "simple-git";
+import fs from "fs";
 
 const path = "./data.json";
-const commits = [[1, 0, 3], [0, 1, 1], [1, 1, 4]] // [x, y, count]
+const commits = JSON.parse(fs.readFileSync("commits.json"));
+
 const markCommit = (x, y) => {
     const date = moment()
         .startOf('y')
