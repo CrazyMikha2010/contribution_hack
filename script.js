@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
   const gridContainer = document.getElementById('gridContainer');
   const palette = document.getElementById('colorPalette');
+
   const clearButton = document.getElementById('clearButton');
   const randomButton = document.getElementById('randomButton');
   const pushButton = document.getElementById('pushButton');
@@ -10,6 +11,16 @@ document.addEventListener('DOMContentLoaded', function () {
   const commits = [];
   let isClicked = false;
   let currColor = "#000000"
+
+  document.querySelector('.arrowUp').addEventListener('click', () => {
+    const input = document.getElementById('yearInput');
+    input.stepUp();
+  });
+
+  document.querySelector('.arrowDown').addEventListener('click', () => {
+    const input = document.getElementById('yearInput');
+    input.stepDown();
+  });
 
   pushButton.onclick = function () {
     const cells = document.querySelectorAll('.cell');
@@ -28,6 +39,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
         }
     })
+    console.log(document.getElementById('yearInput').value)
     console.log(commits)
   }
 
