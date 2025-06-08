@@ -31,8 +31,14 @@ document.addEventListener('DOMContentLoaded', function () {
             commits.push([column, row, commitNumber[backgroundColor]])
         }
     })
-    console.log(document.getElementById('yearInput').value)
+    // console.log(document.getElementById('yearInput').value)
     console.log(commits)
+    for (let i = 0; i < commits.length; i ++) {
+      const commit = commits[i]
+      for (let j = 0; j < commit[2]; j ++) {
+          console.log(commit[0], commit[1])
+    }
+}
   }
 
   document.getElementById('clearButton').onclick = function () {
