@@ -62,3 +62,46 @@ button {
 button:hover {
     color: #1a73e8;
 }
+
+#yearInput {
+    background-color: #0d1117;
+    color: grey;
+    border: none;
+    font-size: 40px;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.inputField {
+  position: relative;
+  display: inline-block;
+  right: 700px;
+  top: -60px;
+}
+
+.arrowButtons {
+  position: absolute;
+  right: 10px;
+  top: -15px;
+  width: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.arrow-up, .arrow-down {
+  border: none;
+  background: grey;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.arrow-up:hover, .arrow-down:hover {
+  background: #1a73e8;
+}
+
