@@ -2,13 +2,9 @@ document.addEventListener('DOMContentLoaded', function () {
   const gridContainer = document.getElementById('gridContainer');
   const palette = document.getElementById('colorPalette');
 
-  const clearButton = document.getElementById('clearButton');
-  const randomButton = document.getElementById('randomButton');
-  const pushButton = document.getElementById('pushButton');
-
   const colors = ["#151b23", "#023a16", "#196c2e", "#2da042", "#56d364"]
   const commitNumber = {"rgb(2, 58, 22)": 1, "rgb(25, 108, 46)": 2, "rgb(45, 160, 66)": 3, "rgb(86, 211, 100)": 4};
-  const commits = [];
+  let commits = [];
   let isClicked = false;
   let currColor = "#000000"
 
@@ -22,7 +18,7 @@ document.addEventListener('DOMContentLoaded', function () {
     input.stepDown();
   });
 
-  pushButton.onclick = function () {
+  document.getElementById('pushButton').onclick = function () {
     const cells = document.querySelectorAll('.cell');
 
     cells.forEach((cell, index) => {
@@ -43,15 +39,15 @@ document.addEventListener('DOMContentLoaded', function () {
     console.log(commits)
   }
 
-  clearButton.onclick = function () {
+  document.getElementById('clearButton').onclick = function () {
     const cells = document.querySelectorAll('.cell');
-
+    commits = []
     cells.forEach(cell => {
         cell.style.backgroundColor = '#151b23';
     });
   }
 
-  randomButton.onclick = function () {
+  document.getElementById('randomButton').onclick = function () {
     const cells = document.querySelectorAll('.cell');
 
     cells.forEach(cell => {
