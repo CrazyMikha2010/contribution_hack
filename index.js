@@ -4,7 +4,7 @@ import simpleGit from "simple-git";
 import fs from "fs";
 
 const path = "./data.json";
-const commits = JSON.parse(fs.readFileSync("commits.json"));
+const commits = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'));
 
 const markCommit = (x, y) => {
     const date = moment()
