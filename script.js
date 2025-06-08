@@ -30,15 +30,14 @@ document.addEventListener('DOMContentLoaded', function () {
             const column = index % 54;
             commits.push([column, row, commitNumber[backgroundColor]])
         }
-    })
-    // console.log(document.getElementById('yearInput').value)
-    console.log(commits)
-    for (let i = 0; i < commits.length; i ++) {
-      const commit = commits[i]
-      for (let j = 0; j < commit[2]; j ++) {
-          console.log(commit[0], commit[1])
-    }
-}
+    });
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(commits));
+    const downloadAnchor = document.createElement('a');
+    downloadAnchor.setAttribute("href", dataStr);
+    downloadAnchor.setAttribute("download", "commits.json");
+    document.body.appendChild(downloadAnchor);
+    downloadAnchor.click();
+    document.body.removeChild(downloadAnchor);
   }
 
   document.getElementById('clearButton').onclick = function () {
@@ -105,5 +104,4 @@ document.addEventListener('DOMContentLoaded', function () {
 
     gridContainer.appendChild(cell);
   }
-
 });
