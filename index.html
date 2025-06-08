@@ -1,99 +1,19 @@
-document.addEventListener('DOMContentLoaded', function () {
-  const gridContainer = document.getElementById('gridContainer');
-  const palette = document.getElementById('colorPalette');
-  const clearButton = document.getElementById('clearButton');
-  const randomButton = document.getElementById('randomButton');
-  const pushButton = document.getElementById('pushButton');
-
-  const colors = ["#151b23", "#023a16", "#196c2e", "#2da042", "#56d364"]
-  const commitNumber = {"rgb(2, 58, 22)": 1, "rgb(25, 108, 46)": 2, "rgb(45, 160, 66)": 3, "rgb(86, 211, 100)": 4};
-  const commits = [];
-  let isClicked = false;
-  let currColor = "#000000"
-
-  pushButton.onclick = function () {
-    const cells = document.querySelectorAll('.cell');
-
-    cells.forEach((cell, index) => {
-        const computedStyle = window.getComputedStyle(cell);
-        const backgroundColor = computedStyle.backgroundColor;
-
-        if (backgroundColor !== 'rgb(21, 27, 35)') {
-            const row = Math.floor(index / 54);
-            const column = index % 54;
-            commits.push({
-                x: column,
-                y: row,
-                commitsTotal: commitNumber[backgroundColor]
-            })
-        }
-    })
-    console.log(commits)
-  }
-
-  clearButton.onclick = function () {
-    const cells = document.querySelectorAll('.cell');
-
-    cells.forEach(cell => {
-        cell.style.backgroundColor = '#151b23';
-    });
-  }
-
-  randomButton.onclick = function () {
-    const cells = document.querySelectorAll('.cell');
-
-    cells.forEach(cell => {
-        tmpNum = Math.floor(Math.random() * 5);
-        cell.style.backgroundColor = colors[tmpNum]
-    })
-  }
-
-  colors.forEach(color => {
-    const colorCell = document.createElement('div');
-    colorCell.classList.add('color-cell');
-    colorCell.style.backgroundColor = color;
-    if (currColor == "#000000" && color == "#56d364") {
-        currColor = "#56d364";
-        colorCell.classList.add('selected');
-    };
-
-    colorCell.addEventListener('click', () => {
-      currColor = color;
-      document.querySelectorAll('.color-cell').forEach(c => c.classList.remove('selected'));
-      colorCell.classList.add('selected');
-    });
-
-    palette.appendChild(colorCell);
-  });
-  
-  window.addEventListener('mouseup', () => {
-      isClicked = false;
-    });
-
-  window.addEventListener('mousedown', () => {
-      isClicked = true;
-    });
-
-  for (let i = 0; i < 7 * 54; i++) {
-    const cell = document.createElement('div');
-    cell.className = 'cell';
-
-    cell.addEventListener('click', () => {
-      cell.style.backgroundColor = `${currColor}`;
-    });
-
-    cell.addEventListener('mousedown', () => {
-      isClicked = true;
-      cell.style.backgroundColor = `${currColor}`;
-    });
-
-    cell.addEventListener('mouseenter', () => {
-      if (isClicked) {
-        cell.style.backgroundColor = `${currColor}`;
-      }
-    });
-
-    gridContainer.appendChild(cell);
-  }
-
-});
+<!DOCTYPE html>
+    <html>
+    <head>
+        <link rel="stylesheet" href="styles.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Mona+Sans:ital,wght@0,200..900;1,200..900&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <div id="gridContainer"></div>
+        <div id="colorPalette"></div>
+        <div id="buttonContainer">
+            <button id="clearButton">Clear</button>
+            <button id="randomButton">Randomize</button>
+            <button id="pushButton">Push</button>
+        </div>
+        <script src="script.js"></script>
+    </body>
+</html>
