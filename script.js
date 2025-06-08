@@ -28,11 +28,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (backgroundColor !== 'rgb(21, 27, 35)') {
             const row = Math.floor(index / 54);
             const column = index % 54;
-            commits.push({
-                x: column,
-                y: row,
-                commitsTotal: commitNumber[backgroundColor]
-            })
+            commits.push([column, row, commitNumber[backgroundColor]])
         }
     })
     console.log(document.getElementById('yearInput').value)
