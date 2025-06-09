@@ -15,14 +15,10 @@ const markCommit = async (x, y, index) => {
     .subtract(moment().year() - year, "y")
     .add(x, "w")
     .add(y, "d")
-    .add(index, "s");
+    .add(index, "s")
+    .format();
 
-//   if (date.isAfter(moment(`${year}`).endOf("y"))) {
-//     console.log(`Skipped: ${date} (x=${x}, y=${y})`);
-//     return
-//   }
-  const dateStr = date.format()
-  const data = { dateStr };
+  const data = { date };
 
     jsonfile.writeFile(path, data, ()=>{
         simpleGit().add([path]).commit(date, {'--date': date});
