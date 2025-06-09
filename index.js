@@ -4,28 +4,39 @@ import simpleGit from "simple-git";
 import fs from "fs";
 
 const path = "./data.json";
-const commits = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'));
+const { year, commits } = JSON.parse(fs.readFileSync("./commits-5.json", 'utf-8'))
+const git = simpleGit();
 
-const markCommit = (x, y) => {
-    const date = moment()
-        .startOf('y')
-        .subtract(1, 'y')
-        .add(x, 'w')
-        .add(y, 'd')
-        .format();
+const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
-    const data = {
-        date: date,
-    };
+const markCommit = async (x, y, index) => {
+  const date = moment()
+    .startOf("y")
+    .subtract(moment().year() - year, "y")
+    .add(x, "w")
+    .add(y, "d")
+    .add(index, "s");
+
+//   if (date.isAfter(moment(`${year}`).endOf("y"))) {
+//     console.log(`Skipped: ${date} (x=${x}, y=${y})`);
+//     return
+//   }
+  const dateStr = date.format()
+  const data = { dateStr };
 
     jsonfile.writeFile(path, data, ()=>{
         simpleGit().add([path]).commit(date, {'--date': date});
     });
-}
+    console.log(`Committed: ${date} (x=${x}, y=${y})`);
+};
 
-for (const [x, y, count] of commits) {
+(async () => {
+  for (const [x, y, count] of commits) {
     for (let i = 0; i < count; i++) {
-        markCommit(x, y)
+      await markCommit(x, y, i);
+      await delay(100); 
     }
-}
-simpleGit().push();
+  }
+  await git.push();
+  console.log("All commits pushed!");
+})();
