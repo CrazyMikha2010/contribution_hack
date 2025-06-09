@@ -31,7 +31,11 @@ document.addEventListener('DOMContentLoaded', function () {
             commits.push([column, row, commitNumber[backgroundColor]])
         }
     });
-    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(commits));
+    const data = {
+    year: parseInt(document.getElementById("yearInput").value), 
+    commits: commits
+    };
+    const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify(data));
     const downloadAnchor = document.createElement('a');
     downloadAnchor.setAttribute("href", dataStr);
     downloadAnchor.setAttribute("download", "commits.json");
