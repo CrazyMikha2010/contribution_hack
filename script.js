@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const computedStyle = window.getComputedStyle(cell);
         const backgroundColor = computedStyle.backgroundColor;
 
-        if (backgroundColor !== 'rgb(21, 27, 35)') {
+        if (backgroundColor !== 'rgb(21, 27, 35)' && cell.className !== "cell inactive") {
             const row = Math.floor(index / 54);
             const column = index % 54;
             commits.push([column, row, commitNumber[backgroundColor]])
