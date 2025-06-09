@@ -29,7 +29,7 @@ const markCommit = async (x, y, index) => {
 (async () => {
   for (const [x, y, count] of commits) {
     for (let i = 0; i < count; i++) {
-      await markCommit(x, y - new Date(year, 0, 1).getDay(), i);
+      await markCommit(x, y, i);
       await delay(100); 
     }
   }
