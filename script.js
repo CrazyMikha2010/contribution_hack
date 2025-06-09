@@ -12,56 +12,14 @@ document.addEventListener('DOMContentLoaded', function () {
     const input = document.getElementById('yearInput');
     input.stepUp();
 
-    const cells = document.querySelectorAll('.cell');
-    document.querySelectorAll('.cell').forEach(cell => {
-        cell.classList.remove('inactive');
-        cell.style.pointerEvents = 'auto';
-    })
-
-    const firstDayOfYear = new Date(document.getElementById('yearInput').value, 0, 1).getDay();
-    for (let row = 0; row < 7; row++) {
-        const cellIndex = row * 54;
-        
-        if (row < firstDayOfYear) {
-            cells[cellIndex].classList.add('inactive');
-            cells[cellIndex].style.pointerEvents = 'none';
-        }
-    }
-
-    const lastDayOfYear = new Date(document.getElementById('yearInput').value, 11, 31).getDay();
-    for (let row = lastDayOfYear + 1; row < 7; row++) {
-        const cellIndex = row * 54 + 53;
-        cells[cellIndex].classList.add('inactive');
-        cells[cellIndex].style.pointerEvents = 'none';
-    }
+    markInactive()
   });
 
   document.querySelector('.arrowDown').addEventListener('click', () => {
     const input = document.getElementById('yearInput');
     input.stepDown();
 
-    const cells = document.querySelectorAll('.cell');
-    document.querySelectorAll('.cell').forEach(cell => {
-        cell.classList.remove('inactive');
-        cell.style.pointerEvents = 'auto';
-    })
-
-    const firstDayOfYear = new Date(document.getElementById('yearInput').value, 0, 1).getDay();
-    for (let row = 0; row < 7; row++) {
-        const cellIndex = row * 54;
-        
-        if (row < firstDayOfYear) {
-            cells[cellIndex].classList.add('inactive');
-            cells[cellIndex].style.pointerEvents = 'none';
-        }
-    }
-
-    const lastDayOfYear = new Date(document.getElementById('yearInput').value, 11, 31).getDay();
-    for (let row = lastDayOfYear + 1; row < 7; row++) {
-        const cellIndex = row * 54 + 53;
-        cells[cellIndex].classList.add('inactive');
-        cells[cellIndex].style.pointerEvents = 'none';
-    }
+    markInactive()
   });
 
   document.getElementById('pushButton').onclick = function () {
@@ -154,26 +112,29 @@ document.addEventListener('DOMContentLoaded', function () {
 
     gridContainer.appendChild(cell);
   }
-  const cells = document.querySelectorAll('.cell');
-    document.querySelectorAll('.cell').forEach(cell => {
-        cell.classList.remove('inactive');
-        cell.style.pointerEvents = 'auto';
-    })
+  markInactive()
 
-    const firstDayOfYear = new Date(document.getElementById('yearInput').value, 0, 1).getDay();
-    for (let row = 0; row < 7; row++) {
-        const cellIndex = row * 54;
-        
-        if (row < firstDayOfYear) {
-            cells[cellIndex].classList.add('inactive');
-            cells[cellIndex].style.pointerEvents = 'none';
-        }
-    }
+  function markInactive () {
+    const cells = document.querySelectorAll('.cell');
+      document.querySelectorAll('.cell').forEach(cell => {
+          cell.classList.remove('inactive');
+          cell.style.pointerEvents = 'auto';
+      })
 
-    const lastDayOfYear = new Date(document.getElementById('yearInput').value, 11, 31).getDay();
-    for (let row = lastDayOfYear + 1; row < 7; row++) {
-        const cellIndex = row * 54 + 53;
-        cells[cellIndex].classList.add('inactive');
-        cells[cellIndex].style.pointerEvents = 'none';
-    }
+      const firstDayOfYear = new Date(document.getElementById('yearInput').value, 0, 1).getDay();
+      for (let row = 0; row < 7; row++) {
+          const cellIndex = row * 54;
+          
+          if (row < firstDayOfYear) {
+              cells[cellIndex].classList.add('inactive');
+              cells[cellIndex].style.pointerEvents = 'none';
+          }
+      }
+
+      const lastDayOfYear = new Date(document.getElementById('yearInput').value, 11, 31).getDay();
+      for (let row = lastDayOfYear + 1; row < 7; row++) {
+          const cellIndex = row * 54 + 53;
+          cells[cellIndex].classList.add('inactive');
+          cells[cellIndex].style.pointerEvents = 'none';
+    }}
 });
