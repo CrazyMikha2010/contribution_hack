@@ -30,7 +30,7 @@ document.addEventListener('DOMContentLoaded', function () {
         const backgroundColor = computedStyle.backgroundColor;
 
         if (backgroundColor !== 'rgb(21, 27, 35)' && cell.className !== "cell inactive") {
-            const row = Math.floor(index / 54);
+            const row = Math.floor(index / 54) - new Date(document.getElementById('yearInput').value, 0, 1).getDay();
             const column = index % 54;
             commits.push([column, row, commitNumber[backgroundColor]])
         }
