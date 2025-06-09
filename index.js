@@ -4,7 +4,7 @@ import simpleGit from "simple-git";
 import fs from "fs";
 
 const path = "./data.json";
-const { year, commits } = JSON.parse(fs.readFileSync("./commits-5.json", 'utf-8'))
+const { year, commits } = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'))
 const git = simpleGit();
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
@@ -29,7 +29,7 @@ const markCommit = async (x, y, index) => {
 (async () => {
   for (const [x, y, count] of commits) {
     for (let i = 0; i < count; i++) {
-      await markCommit(x, y, i);
+      await markCommit(x, y - new Date(year, 0, 1).getDay(), i);
       await delay(100); 
     }
   }
