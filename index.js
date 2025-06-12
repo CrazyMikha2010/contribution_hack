@@ -18,7 +18,7 @@ const markCommit = async (x, y, index) => {
     .add(y, "d")
     .add(index, "s");
 
-  if (date.isAfter(moment(`${year}`).endOf) || date.isBefore(moment(`${year}`).startOf)) {
+  if (date.isAfter(moment(`${year}-12-31`).endOf('y')) || date.isBefore(moment(`${year}-01-01`).startOf('y'))) {
     console.log(`Skipped: ${date} (x=${x}, y=${y})`)
     return
   }
