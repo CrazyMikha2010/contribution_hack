@@ -1,7 +1,7 @@
 {
   "name": "contribution_hack",
   "version": "1.0.0",
-  "description": "",
+  "description": "```bash npm i jsonfile fs moment simple-git ```",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/CrazyMikha2010/contribution_hack#readme",
   "dependencies": {
+    "fs": "^0.0.1-security",
     "jsonfile": "^6.1.0",
     "moment": "^2.30.1",
     "simple-git": "^3.28.0"
