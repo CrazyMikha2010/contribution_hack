@@ -27,9 +27,9 @@ const markCommit = async (x, y, index) => {
   const data = { strDate };
 
     jsonfile.writeFile(path, data, ()=>{
-        simpleGit().add([path]).commit(date, {'--date': date});
+        simpleGit().add([path]).commit(strDate, {'--date': strDate});
     });
-    console.log(`Committed: ${date} (x=${x}, y=${y})`);
+    console.log(`Committed: ${strDate} (x=${x}, y=${y})`);
 };
 
 (async () => {
