@@ -112,7 +112,24 @@ document.addEventListener('DOMContentLoaded', function () {
 
     gridContainer.appendChild(cell);
   }
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach((cell, index) => {
+      cell.addEventListener('mouseover', () => {
+          const column = index % 54;
+          const row = Math.floor(index / 54);
+
+          document.getElementById('xy').textContent = `x: ${column}, y: ${row}`;
+
+          const tmpDate = new Date(document.getElementById('yearInput').value, 0, 1);
+          tmpDate.setDate(tmpDate.getDate() + (column * 7) + row - tmpDate.getDay());
+
+          const options = { day: 'numeric', month: 'short' };
+          const formattedDate = tmpDate.toLocaleDateString(undefined, options);
+          document.getElementById('date').textContent = formattedDate;
+      });
+  });
   markInactive()
+
 
   function markInactive () {
     const cells = document.querySelectorAll('.cell');
@@ -137,4 +154,4 @@ document.addEventListener('DOMContentLoaded', function () {
           cells[cellIndex].classList.add('inactive');
           cells[cellIndex].style.pointerEvents = 'none';
     }}
-});
+  });
