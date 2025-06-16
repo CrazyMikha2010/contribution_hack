@@ -5,6 +5,8 @@ import fs from "fs";
 
 const path = "./data.json";
 const { year, commits } = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'))
+// const year = XXXX;
+// const commits = [[x, y, cnt]]
 const git = simpleGit();
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
