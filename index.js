@@ -13,11 +13,9 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const markCommit = async (x, y, index) => {
   const date = moment()
-    .startOf("y")
     .subtract(moment().year() - year, "y")
-    .subtract(new Date(year, 0, 1).getDay(), "d")
-    .add(x, "w")
-    .add(y, "d")
+    .startOf("y")
+    .add(x * 7 + y - new Date(year, 0, 1).getDay(), "d")
     .add(index, "s");
 
   if (date.isAfter(moment(`${year}-12-31`).endOf('y')) || date.isBefore(moment(`${year}-01-01`).startOf('y'))) {
