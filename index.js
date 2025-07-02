@@ -12,22 +12,15 @@ const git = simpleGit();
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const markCommit = async (x, y, index) => {
-  const date = moment()
-    .subtract(moment().year() - year, "y")
-    .startOf("y")
-    .add(x * 7 + y - new Date(year, 0, 1).getDay(), "d")
-    .add(index, "s");
+  // const tmpDate = moment.utc(`${year}-01-01`);
+  // const dayOffset = tmpDate.day();
+  // tmpDate.add((x * 7) + y - dayOffset + 1, "d");
+  // tmpDate.add(index, "s");
+  // const strDate = tmpDate.format("YYYY-MM-DD HH:mm");
 
-  if (date.isAfter(moment(`${year}-12-31`).endOf('y')) || date.isBefore(moment(`${year}-01-01`).startOf('y'))) {
-    console.log(`Skipped: ${date} (x=${x}, y=${y})`)
-    return
-  }
-
-  const strDate = date.format();
-  const data = { strDate };
-
-    jsonfile.writeFile(path, data, ()=>{
-        simpleGit().add([path]).commit(strDate, {'--date': strDate});
+  // const data = { strDate };
+  jsonfile.writeFile(path, data, ()=>{
+    simpleGit().add([path]).commit(strDate, {'--date': strDate});
     });
     console.log(`Committed: ${strDate} (x=${x}, y=${y})`);
 };

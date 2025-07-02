@@ -30,8 +30,8 @@ document.addEventListener('DOMContentLoaded', function () {
         const backgroundColor = computedStyle.backgroundColor;
 
         if (backgroundColor !== 'rgb(21, 27, 35)' && cell.className !== "cell inactive") {
-            const row = Math.floor(index / 54);
-            const column = index % 54;
+            const row = Math.floor(index / 53);
+            const column = index % 53;
             commits.push([column, row, commitNumber[backgroundColor]])
         }
     });
@@ -91,7 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
       isClicked = true;
     });
 
-  for (let i = 0; i < 7 * 54; i++) {
+  for (let i = 0; i < 7 * 53; i++) {
     const cell = document.createElement('div');
     cell.className = 'cell';
 
@@ -115,8 +115,8 @@ document.addEventListener('DOMContentLoaded', function () {
   const cells = document.querySelectorAll('.cell');
   cells.forEach((cell, index) => {
       cell.addEventListener('mouseover', () => {
-          const column = index % 54;
-          const row = Math.floor(index / 54);
+          const column = index % 53;
+          const row = Math.floor(index / 53);
 
           document.getElementById('xy').textContent = `x: ${column}, y: ${row}`;
 
@@ -140,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const firstDayOfYear = new Date(document.getElementById('yearInput').value, 0, 1).getDay();
       for (let row = 0; row < 7; row++) {
-          const cellIndex = row * 54;
+          const cellIndex = row * 53;
           
           if (row < firstDayOfYear) {
               cells[cellIndex].classList.add('inactive');
@@ -150,7 +150,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       const lastDayOfYear = new Date(document.getElementById('yearInput').value, 11, 31).getDay();
       for (let row = lastDayOfYear + 1; row < 7; row++) {
-          const cellIndex = row * 54 + 53;
+          const cellIndex = row * 53 + 52;
           cells[cellIndex].classList.add('inactive');
           cells[cellIndex].style.pointerEvents = 'none';
     }}

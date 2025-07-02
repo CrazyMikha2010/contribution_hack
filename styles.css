@@ -15,7 +15,7 @@ body {
 
 #gridContainer {
     display: grid;
-    grid-template-columns: repeat(54, auto);
+    grid-template-columns: repeat(53, auto);
     grid-auto-rows: minmax(20px, auto);
     gap: 6px 6px;
     max-width: 1650px;
