@@ -2,22 +2,32 @@
 
 ## Installation
 
-First copy repository
+### First copy repository
 
 ```bash
 git clone https://github.com/CrazyMikha2010/contribution_hack.git
 ```
 
-Install required packages
+### Install required packages
 
 ```bash
 npm init -y
 npm i jsonfile fs moment simple-git
 ```
 
+### Open site
+
+<ins>1st option</ins>
+
+Visit [my github page](https://crazymikha2010.github.io) if it's not repurposed.
+
+<ins>2nd option</ins>
+
 In repo, open `index.html` (right mouse click on file and choose to open in browser or do it any way you want).
 
-You can:
+### Draw graph
+
+Now you can:
 <ul>
   <li>Choose year to submit on past/future/present</li>
   <li>Choose amount(color) of commit on certain day</li>
@@ -26,6 +36,8 @@ You can:
 </ul>
 
 After you finished drawing, click `Push` and `commit.json` will be downloaded on your machine. Drag this file to directory contribution_hack.
+
+### Run and enjoy!
 
 Open terminal, and run
 
