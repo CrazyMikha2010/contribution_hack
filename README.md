@@ -21,8 +21,8 @@ You can:
 <ul>
   <li>Choose year to submit on past/future/present</li>
   <li>Choose amount(color) of commit on certain day</li>
-  <li>Draw anything you want on graph or click `Randomize`</li>
-  <li>`Clear` and start over</li>
+  <li>Draw anything you want on graph or click Randomize</li>
+  <li>Clear and start over</li>
 </ul>
 
 After you finished drawing, click `Push` and `commit.json` will be downloaded on your machine. Drag this file to directory contribution_hack.
