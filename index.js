@@ -12,13 +12,16 @@ const git = simpleGit();
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const markCommit = async (x, y, index) => {
-  // const tmpDate = moment.utc(`${year}-01-01`);
-  // const dayOffset = tmpDate.day();
-  // tmpDate.add((x * 7) + y - dayOffset + 1, "d");
-  // tmpDate.add(index, "s");
-  // const strDate = tmpDate.format("YYYY-MM-DD HH:mm");
+  const startDate = moment.utc(`${year}-01-01`);
+  const dayOffset = startDate.day();
+  const adjustedStartDate = startDate.clone().subtract(dayOffset, "days");
 
-  // const data = { strDate };
+  const commitDate = adjustedStartDate.clone().add(x * 7 + y, "days");
+  commitDate.add(index + 10, "seconds");
+
+  const strDate = commitDate.format("YYYY-MM-DD HH:mm:ss");
+  
+  const data = { strDate };
   jsonfile.writeFile(path, data, ()=>{
     simpleGit().add([path]).commit(strDate, {'--date': strDate});
     });
