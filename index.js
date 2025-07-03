@@ -14,10 +14,11 @@ const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 const markCommit = async (x, y, index) => {
   const startDate = moment.utc(`${year}-01-01`);
   const dayOffset = startDate.day();
+
   const adjustedStartDate = startDate.clone().subtract(dayOffset, "days");
 
-  const commitDate = adjustedStartDate.clone().add(x * 7 + y, "days");
-  commitDate.add(index + 10, "seconds");
+  const commitDate = adjustedStartDate.clone().add(x * 7 + y + 1, "days");
+  commitDate.add(index, "seconds");
 
   const strDate = commitDate.format("YYYY-MM-DD HH:mm:ss");
   
