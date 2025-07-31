@@ -8,7 +8,7 @@
 git clone https://github.com/CrazyMikha2010/contribution_hack.git
 ```
 
-### Install required packages
+### Initialise node.js project and Install required packages
 
 ```bash
 npm init -y
@@ -51,13 +51,17 @@ const { year, commits } = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'))
 
 Wait until `All commits pushed!` message in terminal. Now refresh your profile and enjoy!
 
-### Didn't work?
+## Didn't work?
 
-Check email
+##### Check email 
 
 `The email address used for the commits is associated with your account on GitHub.` [learn more](https://docs.github.com/en/account-and-profile/setting-up-and-managing-your-github-profile/managing-contribution-settings-on-your-profile/why-are-my-contributions-not-showing-up-on-my-profile)
 
-### Improvements
+##### File names
+
+Make sure names of files correspond to reality. If you're using Windows, you might have to change all `/` to `\` in pathways to files.
+
+## Improvements
 
 Fork this repo (and star it pls)! There's still a lot to do. For example 
 <ul>
@@ -67,6 +71,6 @@ Fork this repo (and star it pls)! There's still a lot to do. For example
   <li>Add css - I'm a bad designer</li>
 </ul>
 
-### PS
+## CREDITS
 
 Shout-out to [Fenrir's](https://www.youtube.com/watch?v=LlkcvvGbs9I) and [Akshay Saini's](https://www.youtube.com/watch?v=2q--gA97caM) videos. Check them out!
