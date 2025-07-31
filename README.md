@@ -1,8 +1,8 @@
-# HACK GITHUB CONTRIBUTIONS
+# HACK GITHUB CONTRIBUTIONS 
 
-## Installation
+## Installation 📥
 
-### First copy repository
+### First Copy Repository 🧑‍💻
 
 ```bash
 git clone https://github.com/CrazyMikha2010/contribution_hack.git
@@ -15,7 +15,7 @@ npm init -y
 npm i jsonfile fs moment simple-git
 ```
 
-### Open site
+### Open Site 🛜
 
 <ins>1st option</ins>
 
@@ -25,7 +25,7 @@ Visit [my github page](https://crazymikha2010.github.io) if it's not repurposed.
 
 In repo, open `index.html` (right mouse click on file and choose to open in browser or do it any way you want).
 
-### Draw graph
+### Draw Graph 📈
 
 Now you can:
 <ul>
@@ -37,7 +37,9 @@ Now you can:
 
 After you finished drawing, click `Push` and `commit.json` will be downloaded on your machine. Drag this file to directory contribution_hack.
 
-### Run and enjoy!
+### Run and Enjoy! 🏃💨
+
+⚠️ WARNING - If you run the site locally, the graph you drew will be cleared after running the following command:
 
 Open terminal, and run
 
@@ -51,7 +53,7 @@ const { year, commits } = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'))
 
 Wait until `All commits pushed!` message in terminal. Now refresh your profile and enjoy!
 
-## Didn't work?
+## Didn't Work? 💔
 
 ##### Check email 
 
@@ -61,7 +63,7 @@ Wait until `All commits pushed!` message in terminal. Now refresh your profile a
 
 Make sure names of files correspond to reality. If you're using Windows, you might have to change all `/` to `\` in pathways to files.
 
-## Improvements
+## Improvements ✅
 
 Fork this repo (and star it pls)! There's still a lot to do. For example 
 <ul>
@@ -71,6 +73,6 @@ Fork this repo (and star it pls)! There's still a lot to do. For example
   <li>Add css - I'm a bad designer</li>
 </ul>
 
-## CREDITS
+## CREDITS 🏆
 
 Shout-out to [Fenrir's](https://www.youtube.com/watch?v=LlkcvvGbs9I) and [Akshay Saini's](https://www.youtube.com/watch?v=2q--gA97caM) videos. Check them out!
