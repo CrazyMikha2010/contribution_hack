@@ -5,20 +5,15 @@ import fs from "fs";
 
 const path = "./data.json";
 const { year, commits } = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'))
-// const year = XXXX;
-// const commits = [[x, y, cnt]]
+// const year = XXX;
+// const commits = [[x, y, cnt]];
 const git = simpleGit();
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 const markCommit = async (x, y, index) => {
-  const startDate = moment.utc(`${year}-01-01`);
-  const dayOffset = startDate.day();
-
-  const adjustedStartDate = startDate.clone().subtract(dayOffset, "days");
-
-  const commitDate = adjustedStartDate.clone().add(x * 7 + y + 1, "days");
-  commitDate.add(index, "seconds");
+  const offset = new Date(year, 0, 1).getDay();
+  const commitDate = moment().year(year).startOf('y').add(y + x * 7 + 1, 'd').subtract(offset, 'd').add(index, 's');
 
   const strDate = commitDate.format("YYYY-MM-DD HH:mm:ss");
   
