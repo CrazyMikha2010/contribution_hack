@@ -1,5 +1,7 @@
 # HACK GITHUB CONTRIBUTIONS 
 
+<img src="images/Screenshot 2025-08-02 at 23.54.57.png"/>
+
 ## Installation 📥
 
 ### First Copy Repository 🧑‍💻
@@ -52,6 +54,21 @@ const { year, commits } = JSON.parse(fs.readFileSync("./commits.json", 'utf-8'))
 ```
 
 Wait until `All commits pushed!` message in terminal. Now refresh your profile and enjoy!
+
+## Examples 🐸
+
+*github profile*
+
+<img src="images/Screenshot 2025-08-02 at 23.55.43.png"/>
+<img src="images/Screenshot 2025-08-02 at 23.54.16.png"/>
+
+
+*screenshots from site*
+
+<img src="images/Screenshot 2025-08-02 at 23.41.51.png"/>
+<img src="images/Screenshot 2025-08-02 at 23.22.45.png"/>
+<img src="images/Screenshot 2025-08-02 at 23.31.13.png"/>
+
 
 ## Didn't Work? 💔
 
